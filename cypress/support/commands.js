@@ -13,3 +13,9 @@ Cypress.Commands.add('login', (username, password) => {
     cy.get('#password').type(password)
     cy.get('#login').submit()
 })
+
+Cypress.Commands.add('logout', () => {
+    cy.get('.button.secondary.radius').click()
+    cy.url().should('include', '/login')
+    cy.get('#flash').should('contain.text', 'You logged out of the secure area!')
+})
