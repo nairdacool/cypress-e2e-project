@@ -68,6 +68,11 @@ describe('cypress example test with The Internet HerokuApp domain', () => {
         cy.url().should('include', '/login')
         cy.get('#flash').should('contain.text', 'Your username is invalid!')
     })
+
+    it('visit the page and login using custom command with valid credentials', () => {
+        cy.login('tomsmith','SuperSecretPassword!')
+        cy.get('#flash').should('contain','You logged into a secure area!')
+    })
 })
 
 describe('interception and simulation of a server responde', () => {
