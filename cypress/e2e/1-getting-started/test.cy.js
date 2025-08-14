@@ -1,3 +1,5 @@
+import 'cypress-mochawesome-reporter/register';
+
 describe('cypress example test', () => {
 
     beforeEach(() =>{

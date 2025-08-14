@@ -1,15 +1,23 @@
-const { defineConfig } = require("cypress")
+const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    baseUrl: 'https://example.cypress.io',
+    baseUrl: "https://example.cypress.io",
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require("cypress-mochawesome-reporter/plugin")(on);
+      return config;
     },
     screenshotOnRunFailure: true,
-    screenshotsFolder: 'cypress/screenshots',
+    screenshotsFolder: "cypress/screenshots",
     video: true,
-    videosFolder: 'cypress/videos',
+    videosFolder: "cypress/videos",
     trashAssetsBeforeRuns: true,
+    reporter: "cypress-mochawesome-reporter",
+    reporterOptions: {
+      reportDir: "cypress/reports",
+      charts: true,
+      embeddedScreenshots: true,
+      inlineAssets: true,
+    },
   },
 });

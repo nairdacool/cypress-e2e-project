@@ -20,4 +20,9 @@ yarn-error.log*
 # VS Code settings
 .vscode/
 
-# Coverage reports
+# Cypress output
+cypress/videos/
+cypress/screenshots/
+
+# Cypress reports
+cypress/reports/
